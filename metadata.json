@@ -1,6 +1,6 @@
 {
-  "name": "HijjazI version",
-  "description": "This is a comphrehinsive WhatsApp bot for managing customer orders and providing real-time tracking updates.",
+  "name": "HijjazI AI Whatsapp Bot",
+  "description": "This is a comprehensive WhatsApp bot for managing customer orders and providing real-time tracking updates.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

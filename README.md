@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ HijjazI AI — Next-Gen Multi-Device WhatsApp Bot ⚡
+# ⚡ HijjazI AI Whatsapp Bot ⚡
 
 <p align="center">
   <a href="https://git.io/typing-svg">
@@ -27,6 +27,10 @@
 ### ⚡ Quick Access & Deployment ⚡
 
 <p align="center">
+  <a href="https://github.com/kashafHijjaze/Whatsapp-bot-/fork" target="_blank">
+    <img src="https://img.shields.io/badge/🍴_FORK_REPO-GitHub-blue?style=for-the-badge&logo=github&logoColor=white" alt="Fork Repository" height="38"/>
+  </a>
+  &nbsp;&nbsp;
   <a href="https://hijjaze-ai-version-2.onrender.com" target="_blank">
     <img src="https://img.shields.io/badge/🔑_GET_PAIR_CODE-Online_Generator-00F2FE?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Get Pair Code" height="38"/>
   </a>
@@ -48,53 +52,6 @@
 
 </div>
 
-## 🌟 Highlights & Key Features
-
-<table>
-  <tr>
-    <td width="50%">
-      <h3>🛡️ Advanced Group Moderation</h3>
-      <ul>
-        <li><b>Anti-Link & Anti-Spam:</b> Auto-delete links with kick/warn actions</li>
-        <li><b>Mass Mentions:</b> <code>.tagall</code>, <code>.hidetag</code>, <code>.tagnotadmin</code></li>
-        <li><b>Smart Warning System:</b> Track strike counts & auto-ban repeat offenders</li>
-        <li><b>Auto Welcome & Goodbye:</b> Customized greeting cards for newcomers</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h3>🔄 Anti-Delete & Auto-Recovery</h3>
-      <ul>
-        <li><b>Story & Status Vault:</b> Auto-saves contact statuses and WhatsApp stories</li>
-        <li><b>Deleted Message Recovery:</b> Recovers revoked texts, media & view-once files</li>
-        <li><b>Private Forwarding:</b> Delivers recovered media straight to your private DM</li>
-        <li><b>Granular Toggles:</b> Independent controls for group, private, media, and stories</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3>🤖 Artificial Intelligence & Media</h3>
-      <ul>
-        <li><b>ChatGPT & Gemini Pro:</b> Instant AI conversation and coding assistance</li>
-        <li><b>AI Image Synthesis:</b> <code>.imagine</code> & <code>.sora</code> prompt-to-image</li>
-        <li><b>Photo Enhancement:</b> Upscale low-res images via <code>.remini</code> & <code>.removebg</code></li>
-        <li><b>Audio & Sticker Studio:</b> Convert images/videos into custom animated stickers</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h3>📥 Multi-Platform Downloaders</h3>
-      <ul>
-        <li><b>Spotify & YouTube MP3:</b> High-bitrate audio with ID3 cover tags</li>
-        <li><b>HD Video Downloaders:</b> YouTube MP4, TikTok (No Watermark), Facebook, Instagram</li>
-        <li><b>Interactive Gaming:</b> Tic-Tac-Toe, Hangman, Trivia, Truth & Dare</li>
-        <li><b>3D Text Styler:</b> 12+ aesthetic text generator effects (Neon, Glitch, Fire, etc.)</li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
----
-
 ## 🚀 Deployment & Hosting Guide
 
 ### 🌟 Step 1: Generate Pair Code & `creds.json` / Session ID (First Step)
@@ -104,7 +61,7 @@ First, generate your session credentials from the official generator:
 👉 **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**
 
 1. Open the generator link: **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**.
-2. Enter your WhatsApp phone number with country code (e.g. `923417545340`).
+2. Enter your WhatsApp phone number with country code (e.g. `923***`).
 3. Enter the 8-digit pairing code on your phone in WhatsApp (*Settings → Linked Devices → Link with phone number*).
 4. Download / copy your `creds.json` file (or copy the generated `SESSION_ID`).
 
@@ -175,6 +132,53 @@ If you prefer hosting on a VPS or dedicated cloud server:
    ```bash
    npm start
    ```
+
+---
+
+## 🌟 Highlights & Key Features
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🛡️ Advanced Group Moderation</h3>
+      <ul>
+        <li><b>Anti-Link & Anti-Spam:</b> Auto-delete links with kick/warn actions</li>
+        <li><b>Mass Mentions:</b> <code>.tagall</code>, <code>.hidetag</code>, <code>.tagnotadmin</code></li>
+        <li><b>Smart Warning System:</b> Track strike counts & auto-ban repeat offenders</li>
+        <li><b>Auto Welcome & Goodbye:</b> Customized greeting cards for newcomers</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>🔄 Anti-Delete & Auto-Recovery</h3>
+      <ul>
+        <li><b>Story & Status Vault:</b> Auto-saves contact statuses and WhatsApp stories</li>
+        <li><b>Deleted Message Recovery:</b> Recovers revoked texts, media & view-once files</li>
+        <li><b>Private Forwarding:</b> Delivers recovered media straight to your private DM</li>
+        <li><b>Granular Toggles:</b> Independent controls for group, private, media, and stories</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>🤖 Artificial Intelligence & Media</h3>
+      <ul>
+        <li><b>ChatGPT & Gemini Pro:</b> Instant AI conversation and coding assistance</li>
+        <li><b>AI Image Synthesis:</b> <code>.imagine</code> & <code>.sora</code> prompt-to-image</li>
+        <li><b>Photo Enhancement:</b> Upscale low-res images via <code>.remini</code> & <code>.removebg</code></li>
+        <li><b>Audio & Sticker Studio:</b> Convert images/videos into custom animated stickers</li>
+      </ul>
+    </td>
+    <td width="50%">
+      <h3>📥 Multi-Platform Downloaders</h3>
+      <ul>
+        <li><b>Spotify & YouTube MP3:</b> High-bitrate audio with ID3 cover tags</li>
+        <li><b>HD Video Downloaders:</b> YouTube MP4, TikTok (No Watermark), Facebook, Instagram</li>
+        <li><b>Interactive Gaming:</b> Tic-Tac-Toe, Hangman, Trivia, Truth & Dare</li>
+        <li><b>3D Text Styler:</b> 12+ aesthetic text generator effects (Neon, Glitch, Fire, etc.)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -413,34 +417,6 @@ Fast image overlays and meme templates.
 | **`.jail`** | `.jail` *(reply to photo)* | Places the subject behind prison bars with jail arrest effects. |
 | **`.passed`** | `.passed` *(reply to photo)* | Overlays the iconic GTA "MISSION PASSED - RESPECT +" banner. |
 | **`.triggered`** | `.triggered` *(reply to photo)* | Generates a violently shaking, red-tinted rage triggered animated sticker/GIF. |
-
----
-
-## 🛡️ Architecture & Security Best Practices
-
-```
-┌────────────────────────────────────────────────────────┐
-│                      HIJJAZI AI                        │
-│             Backend Architecture Overview              │
-└──────────────────────────┬─────────────────────────────┘
-                           │
-         ┌─────────────────┼─────────────────┐
-         ▼                 ▼                 ▼
-  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-  │   Baileys    │  │ Auto-Recovery│  │ Health Check │
-  │ Multi-Device │  │    Engine    │  │ JSON Server  │
-  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘
-         │                 │                 │
-         └─────────────────┼─────────────────┘
-                           ▼
-  ┌──────────────────────────────────────────────────┐
-  │   108+ Command Modules (Admin, AI, Media, Games)  │
-  └──────────────────────────────────────────────────┘
-```
-
-- **Multi-Device Compatibility:** Built on `@whiskeysockets/baileys` ensuring your bot stays connected even when your primary phone is disconnected.
-- **Session Vault:** Sessions are stored with encrypted integrity and fail-safe reload recovery.
-- **Rate-Limiting & Flood Control:** Built-in message debounce logic prevents WhatsApp spam detection and connection bans.
 
 ---
 
