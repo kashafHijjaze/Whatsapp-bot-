@@ -231,65 +231,18 @@ async function updateViaZip(zipOverride) {
     return { copiedFiles: copied, packageChanged };
 }
 
-function purgeRequireCache() {
-    try {
-        const rootDir = process.cwd();
-        Object.keys(require.cache).forEach(key => {
-            if (
-                key.includes(path.join(rootDir, 'commands')) ||
-                key.includes(path.join(rootDir, 'lib')) ||
-                key.endsWith('settings.js') ||
-                key.endsWith('main.js')
-            ) {
-                delete require.cache[key];
-            }
-        });
-    } catch (e) {
-        console.warn('Cache purge notice:', e.message);
-    }
-}
-
 async function restartProcess(sock, chatId, message) {
     try {
-        await sock.sendMessage(chatId, { text: '⚡ Update applied successfully! Reloading bot modules…' }, { quoted: message });
+        await sock.sendMessage(chatId, { text: '✅ Update complete! Rebooting bot…' }, { quoted: message });
     } catch {}
-
-    // Flush require cache so new code is loaded
-    purgeRequireCache();
-
-    // Check if PM2 supervisor is running this process
-    const isPm2 = process.env.pm_id !== undefined || process.env.PM2_HOME !== undefined;
-
-    if (isPm2) {
+    
+    setTimeout(async () => {
         try {
             await run('pm2 restart all', 10000);
             return;
         } catch {}
-    }
-
-    // In Katabump / Docker / Cloud container hosting, do NOT call process.exit(0)
-    // which kills the container. Instead, seamlessly restart the socket connection in-process!
-    try {
-        const botEngine = require('../index');
-        if (botEngine && typeof botEngine.restartBot === 'function') {
-            await botEngine.restartBot();
-            try {
-                const freshSettings = require('../settings');
-                const v = freshSettings.version ? ` v${freshSettings.version}` : '';
-                await sock.sendMessage(chatId, { 
-                    text: `👑 *HijjazI AI*${v} updated and reloaded successfully!\n\nType *.ping* or *.menu* to verify.` 
-                });
-            } catch {}
-            return;
-        }
-    } catch (inProcessErr) {
-        console.warn('[update] In-process restart fallback error:', inProcessErr.message);
-    }
-
-    // If all else fails and in a supervisor environment with exit restart
-    setTimeout(() => {
         process.exit(0);
-    }, 1500);
+    }, 800);
 }
 
 async function updateCommand(sock, chatId, message, zipOverride) {

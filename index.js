@@ -223,7 +223,6 @@ async function startXeonBotInc(isPairing = false) {
 
     try {
         await closeActiveSocket('Restarting socket');
-        sessionVault.sanitizeSessionFolder();
         if (!isPairing) {
             initSessionFromVaultAndEnv();
         }
@@ -239,17 +238,7 @@ async function startXeonBotInc(isPairing = false) {
             // Safe fallback to default version
         }
 
-        let authState;
-        try {
-            authState = await useMultiFileAuthState('./session');
-        } catch (authErr) {
-            console.warn('⚠️ Session files auth error, sanitizing session folder and retrying...', authErr.message);
-            sessionVault.sanitizeSessionFolder();
-            sessionVault.restoreCredsIfNeeded();
-            authState = await useMultiFileAuthState('./session');
-        }
-
-        const { state, saveCreds } = authState;
+        const { state, saveCreds } = await useMultiFileAuthState('./session');
         const msgRetryCounterCache = new NodeCache({ stdTTL: 3600, checkperiod: 120, useClones: false });
 
         const isPairingOrRegistered = isPairing || state.creds.registered || process.argv.includes('--pairing-code');
@@ -932,22 +921,9 @@ async function repairSession() {
     }
 }
 
-async function restartBot() {
-    try {
-        botState.addLog('🔄 Restarting WhatsApp socket connection in-process...', 'info');
-        await closeActiveSocket('In-process reload');
-        await delay(1200);
-        return await startXeonBotInc();
-    } catch (err) {
-        botState.addLog('Failed to in-process restart socket: ' + err.message, 'error');
-        throw err;
-    }
-}
-
 // Module exports for web control
 module.exports = {
     startXeonBotInc,
-    restartBot,
     requestPairingCodeForNumber,
     requestQrCode,
     resetSession,
