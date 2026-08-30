@@ -508,10 +508,10 @@ async function startXeonBotInc(isPairing = false) {
                 botState.addLog('🔒 WhatsApp session permanently stored in file vault (24/7 protected)', 'success');
                 console.log(chalk.green('🌿 Connected to WhatsApp => ' + JSON.stringify(XeonBotInc.user, null, 2)));
 
-                // Send SESSION_ID and creds.json file directly to the connected user's WhatsApp number after connection stabilizes
+                // Send simple connected message directly to the connected user's WhatsApp number after connection stabilizes
                 setTimeout(() => {
-                    sendSessionCredentialsToUser(XeonBotInc).catch(err => {
-                        console.log('Session delivery check completed.');
+                    sendConnectedMessageToUser(XeonBotInc).catch(err => {
+                        console.log('Connected message check completed.');
                     });
                 }, 3500);
             }
@@ -637,7 +637,7 @@ setInterval(async () => {
     }
 }, 30000);
 
-async function sendSessionCredentialsToUser(sock, force = false) {
+async function sendConnectedMessageToUser(sock, force = false) {
     try {
         if (!sock || !sock.user) return;
         // Verify socket is active
@@ -648,105 +648,24 @@ async function sendSessionCredentialsToUser(sock, force = false) {
         if (!cleanNumber) return;
         const targetJid = `${cleanNumber}@s.whatsapp.net`;
 
-        // Retrieve session data
-        const sessionInfo = exportSession();
-        const sessionId = sessionInfo?.sessionId;
-        const credsSignature = sessionInfo?.rawJson ? require('crypto').createHash('md5').update(sessionInfo.rawJson).digest('hex') : null;
-
-        // Prevent duplicate sending on bot restarts - only send the first time upon connecting
-        if (!force && sessionVault.isSessionDelivered(cleanNumber, credsSignature)) {
-            console.log(chalk.gray(`ℹ️ [Session] Credentials already delivered to +${cleanNumber}. Suppressed on restart.`));
+        // Prevent duplicate sending on rapid reconnections
+        if (!force && sessionVault.isSessionDelivered(cleanNumber, 'connected_notice')) {
+            console.log(chalk.gray(`ℹ️ [Session] Connected notification already delivered to +${cleanNumber}.`));
             return;
         }
 
-        const userName = sock.user.name || 'WhatsApp User';
-        const now = new Date().toLocaleString();
-
-        // 1. Initial Connection Overview Message
-        const welcomeMessage = 
-`╔══════════════════════════╗
-║   🤖 *HIJJAZI AI CONNECTED!*   ║
-╚══════════════════════════╝
-
-✨ *Status:* Connected & Active (24/7)
-👤 *Account:* ${userName}
-📱 *Phone:* +${cleanNumber}
-⏰ *Connected At:* ${now}
-
-💡 *Session Backup Notice:*
-• Your *SESSION_ID* is sent separately below (tap text to copy).
-• Your *creds.json* backup document file is attached below.
-• Keep these safe to restore or run your bot anytime!`;
-
         try {
             await sock.sendMessage(targetJid, {
-                text: welcomeMessage,
-                contextInfo: {
-                    forwardingScore: 999,
-                    isForwarded: true,
-                    forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363426834632590@newsletter',
-                        newsletterName: 'HijjazI AI',
-                        serverMessageId: -1
-                    }
-                }
+                text: 'Hijjazi Ai connected'
             });
+            sessionVault.markSessionDelivered(cleanNumber, 'connected_notice');
+            console.log(chalk.green(`📤 [Connection] Sent connected message to +${cleanNumber}`));
+            botState.addLog(`📤 Sent connected notification to WhatsApp (+${cleanNumber})`, 'success');
         } catch (e1) {
-            console.log('Notice: Initial greeting skipped or socket reconnecting.');
+            console.log('Notice: Connected message skipped or socket reconnecting.');
         }
-
-        // 2. Send Session ID Separately as Tap-to-Copy Block
-        if (sessionId) {
-            await delay(1200);
-            try {
-                await sock.sendMessage(targetJid, {
-                    text: `🔑 *YOUR SESSION ID (Tap to Copy):*\n\n\`\`\`${sessionId}\`\`\``,
-                    contextInfo: {
-                        forwardingScore: 999,
-                        isForwarded: true,
-                        forwardedNewsletterMessageInfo: {
-                            newsletterJid: '120363426834632590@newsletter',
-                            newsletterName: 'HijjazI AI',
-                            serverMessageId: -1
-                        }
-                    }
-                });
-            } catch (e2) {
-                console.log('Notice: Session ID text message skipped or socket reconnecting.');
-            }
-        }
-
-        // 3. Send creds.json file as document
-        const credsPath = path.join(__dirname, 'session', 'creds.json');
-        let credsBuffer = null;
-        if (fs.existsSync(credsPath)) {
-            credsBuffer = fs.readFileSync(credsPath);
-        } else if (fs.existsSync(sessionVault.VAULT_CREDS)) {
-            credsBuffer = fs.readFileSync(sessionVault.VAULT_CREDS);
-        } else if (sessionInfo?.rawJson) {
-            credsBuffer = Buffer.from(sessionInfo.rawJson, 'utf8');
-        }
-
-        if (credsBuffer && credsBuffer.length > 20) {
-            await delay(1200);
-            try {
-                await sock.sendMessage(targetJid, {
-                    document: credsBuffer,
-                    mimetype: 'application/json',
-                    fileName: 'creds.json',
-                    caption: `📁 *creds.json Session Backup*\n\n🔒 *Encrypted Keys:* Your session file for WhatsApp bot authentication.`
-                });
-            } catch (e3) {
-                console.log('Notice: creds.json backup document skipped or socket reconnecting.');
-            }
-        }
-
-        // 4. Mark session as delivered to prevent re-sending on subsequent bot restarts
-        sessionVault.markSessionDelivered(cleanNumber, credsSignature);
-        console.log(chalk.green(`📤 [Initial Setup] Delivered SESSION_ID and creds.json to +${cleanNumber}`));
-        botState.addLog(`📤 Delivered initial SESSION_ID & creds.json to WhatsApp (+${cleanNumber})`, 'success');
     } catch (err) {
-        console.log('Session credentials notification notice:', err.message);
+        console.log('Connected notification notice:', err.message);
     }
 }
 
