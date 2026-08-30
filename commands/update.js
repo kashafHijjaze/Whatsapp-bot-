@@ -25,9 +25,9 @@ async function hasGitRepo() {
     }
 }
 
-const DEFAULT_REPO_URL = 'https://github.com/kashafHijjaze/Knight-bot-mine';
-const DEFAULT_ZIP_MAIN = 'https://github.com/kashafHijjaze/Knight-bot-mine/archive/refs/heads/main.zip';
-const DEFAULT_ZIP_MASTER = 'https://github.com/kashafHijjaze/Knight-bot-mine/archive/refs/heads/master.zip';
+const DEFAULT_REPO_URL = 'https://github.com/kashafHijjaze/Whatsapp-bot-';
+const DEFAULT_ZIP_MAIN = 'https://github.com/kashafHijjaze/Whatsapp-bot-/archive/refs/heads/main.zip';
+const DEFAULT_ZIP_MASTER = 'https://github.com/kashafHijjaze/Whatsapp-bot-/archive/refs/heads/master.zip';
 
 async function updateViaGit() {
     const targetRepo = settings.githubRepo || DEFAULT_REPO_URL;

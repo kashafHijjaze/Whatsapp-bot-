@@ -8,16 +8,37 @@
   </a>
 </p>
 
-[![GitHub Stars](https://img.shields.io/github/stars/kashafHijjaze/Knight-bot-mine?style=for-the-badge&logo=starship&color=4facfe&logoColor=white)](https://github.com/kashafHijjaze/Knight-bot-mine/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/kashafHijjaze/Knight-bot-mine?style=for-the-badge&logo=git&color=00f2fe&logoColor=white)](https://github.com/kashafHijjaze/Knight-bot-mine/network/members)
-[![Version](https://img.shields.io/badge/Version-3.0.7-38ef7d?style=for-the-badge&logo=semver&logoColor=white)](https://github.com/kashafHijjaze/Knight-bot-mine)
+[![GitHub Stars](https://img.shields.io/github/stars/kashafHijjaze/Whatsapp-bot-?style=for-the-badge&logo=starship&color=4facfe&logoColor=white)](https://github.com/kashafHijjaze/Whatsapp-bot-/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/kashafHijjaze/Whatsapp-bot-?style=for-the-badge&logo=git&color=00f2fe&logoColor=white)](https://github.com/kashafHijjaze/Whatsapp-bot-/network/members)
+[![Version](https://img.shields.io/badge/Version-3.0.7-38ef7d?style=for-the-badge&logo=semver&logoColor=white)](https://github.com/kashafHijjaze/Whatsapp-bot-)
 [![Node.js](https://img.shields.io/badge/Node.js-18.x%20|%2020.x-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![Baileys](https://img.shields.io/badge/Baileys-Multi--Device-FF5722?style=for-the-badge&logo=whatsapp&logoColor=white)](https://github.com/WhiskeySockets/Baileys)
 [![License](https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/kashafHijjaze/Knight-bot-mine/main/assets/bot_image.jpg" alt="HijjazI AI Banner" width="550" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 242, 254, 0.35);" />
+<!-- Banner Image: Uses relative repo path for native GitHub rendering -->
+<p align="center">
+  <img src="./assets/bot_image.jpg" alt="HijjazI AI Banner" width="500" style="border-radius: 16px; box-shadow: 0 8px 30px rgba(0, 242, 254, 0.35);" />
+</p>
+
+<br/>
+
+### ⚡ Quick Access & Deployment ⚡
+
+<p align="center">
+  <a href="https://hijjaze-ai-version-2.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/🔑_GET_PAIR_CODE-Online_Generator-00F2FE?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Get Pair Code" height="38"/>
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_DEPLOY_TO-Katabump_(Recommended)-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy to Katabump" height="38"/>
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/💻_HOST_ON-VPS_(Recommended:_Katabump)-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="38"/>
+  </a>
+</p>
 
 <br/>
 
@@ -312,19 +333,66 @@ Fast image overlays and meme templates.
 
 ---
 
-## 🚀 Quick Setup & Installation
+## 🚀 Deployment & Hosting Options
+
+### 1. 🌟 Deploy on Katabump (⭐ Highly Recommended)
+
+Deploy HijjazI AI to **Katabump** in just a few clicks for 24/7 continuous uptime without needing to keep your personal device running:
+
+<p align="left">
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy%20Now-Katabump%20(Recommended)-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy to Katabump" height="38"/>
+  </a>
+</p>
+
+1. Create an account or log in on [Katabump](https://katabump.com).
+2. Connect your GitHub repository (`https://github.com/kashafHijjaze/Whatsapp-bot-`).
+3. Set your environment variables:
+   - `SESSION_ID`: Your session ID from the [Pair Code Generator](https://hijjaze-ai-version-2.onrender.com)
+   - `OWNER_NUMBER`: Your WhatsApp phone number (e.g. `923417545340`)
+   - `BOT_NAME`: `HijjazI AI`
+4. Click **Deploy** — your bot will start running 24/7 automatically!
+
+---
+
+### 2. 💻 Host on VPS / Dedicated Server (Recommended: Katabump)
+
+If you prefer self-hosting on an Ubuntu/Debian VPS, or want 1-click cloud hosting via Katabump:
+
+<p align="left">
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/Host%20on-VPS%20%2F%20Katabump-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="38"/>
+  </a>
+</p>
+
+---
+
+## 🔑 WhatsApp Connection & Pairing
+
+### 🌟 Step 1: Generate Your Pair Code / Session ID (Recommended)
+Visit the official online pair code generator to link your WhatsApp account without scanning a QR code:
+
+👉 **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**
+
+1. Enter your WhatsApp number with country code (e.g., `923417545340`).
+2. Enter the 8-character pairing code in WhatsApp (*Settings → Linked Devices → Link with phone number*).
+3. Copy the generated `SESSION_ID` or `creds.json`.
+
+---
+
+## ⚙️ Local / VPS Installation
 
 ### 📋 Prerequisites
 - **Node.js**: v18.0.0 or higher ([Download Node.js](https://nodejs.org))
 - **Git**: Installed on your operating system ([Download Git](https://git-scm.com))
-- **FFmpeg**: Required for audio and sticker video conversion
+- **FFmpeg**: Required for audio, voice note, and animated sticker conversion
 
-### ⚙️ Step-by-Step Installation
+### 🛠️ Step-by-Step Guide
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/kashafHijjaze/Knight-bot-mine.git
-   cd Knight-bot-mine
+   git clone https://github.com/kashafHijjaze/Whatsapp-bot-.git
+   cd Whatsapp-bot-
    ```
 
 2. **Install Dependencies:**
@@ -333,25 +401,20 @@ Fast image overlays and meme templates.
    ```
 
 3. **Configure Environment:**
-   Create or edit `config.js` or `settings.js` to set your desired bot name, owner number, and API tokens:
-   ```javascript
-   module.exports = {
-     botName: "HijjazI AI",
-     botOwner: "Kashfurrahman",
-     ownerNumber: "923417545340",
-     prefix: ".",
-     version: "3.0.7",
-   };
+   Set your `SESSION_ID` in `.env` or place your `creds.json` in the `/session/` folder:
+   ```env
+   PORT=3000
+   SESSION_ID=your_session_id_here
+   OWNER_NUMBER=923417545340
+   BOT_NAME="HijjazI AI"
+   BOT_OWNER="Kashfurrahman"
+   COMMAND_MODE=public
    ```
 
 4. **Launch the Bot:**
    ```bash
    npm start
    ```
-
-5. **Connect Your WhatsApp Account:**
-   - **QR Code Method:** When the bot boots in terminal, scan the generated terminal QR code with WhatsApp (*Settings → Linked Devices → Link a Device*).
-   - **Web Management Dashboard:** Open `http://localhost:3000` in your web browser to view connection status, QR code display, live logs, and recovery configuration.
 
 ---
 
@@ -360,14 +423,14 @@ Fast image overlays and meme templates.
 ```
 ┌────────────────────────────────────────────────────────┐
 │                      HIJJAZI AI                        │
-│                 Architecture Overview                  │
+│             Backend Architecture Overview              │
 └──────────────────────────┬─────────────────────────────┘
                            │
          ┌─────────────────┼─────────────────┐
          ▼                 ▼                 ▼
   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐
-  │   Baileys    │  │ Auto-Recovery│  │   Express    │
-  │ Multi-Device │  │    Engine    │  │ Web Dashboard│
+  │   Baileys    │  │ Auto-Recovery│  │ Health Check │
+  │ Multi-Device │  │    Engine    │  │ JSON Server  │
   └──────┬───────┘  └──────┬───────┘  └──────┬───────┘
          │                 │                 │
          └─────────────────┼─────────────────┘

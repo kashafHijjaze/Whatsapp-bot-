@@ -10,8 +10,8 @@ const settings = {
   storeWriteInterval: 10000,
   description: "This is a bot for managing group commands and automating tasks.",
   version: "3.0.7",
-  githubRepo: "https://github.com/kashafHijjaze/Knight-bot-mine",
-  updateZipUrl: "https://github.com/kashafHijjaze/Knight-bot-mine/archive/refs/heads/main.zip",
+  githubRepo: "https://github.com/kashafHijjaze/Whatsapp-bot-",
+  updateZipUrl: "https://github.com/kashafHijjaze/Whatsapp-bot-/archive/refs/heads/main.zip",
 };
 
 module.exports = settings;

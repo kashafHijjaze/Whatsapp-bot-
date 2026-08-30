@@ -5,9 +5,9 @@ const path = require('path');
 const settings = require('../settings');
 
 async function githubCommand(sock, chatId, message) {
-  const repoUrl = settings.githubRepo || 'https://github.com/kashafHijjaze/Knight-bot-mine';
+  const repoUrl = settings.githubRepo || 'https://github.com/kashafHijjaze/Whatsapp-bot-';
   try {
-    const res = await fetch('https://api.github.com/repos/kashafHijjaze/Knight-bot-mine', {
+    const res = await fetch('https://api.github.com/repos/kashafHijjaze/Whatsapp-bot-', {
       headers: { 'User-Agent': 'HijjazI-AI-Bot' }
     });
 
@@ -17,7 +17,7 @@ async function githubCommand(sock, chatId, message) {
     } else {
       // Graceful fallback if GitHub API rate-limited
       json = {
-        name: 'Knight-bot-mine',
+        name: 'Whatsapp-bot-',
         watchers_count: 0,
         size: 1536,
         updated_at: new Date().toISOString(),
@@ -28,7 +28,7 @@ async function githubCommand(sock, chatId, message) {
     }
 
     let txt = `*乂  HijjazI AI  乂*\n\n`;
-    txt += `✩  *Name* : ${json.name || 'Knight-bot-mine'}\n`;
+    txt += `✩  *Name* : ${json.name || 'Whatsapp-bot-'}\n`;
     txt += `✩  *Owner* : KashafHijjaze\n`;
     txt += `✩  *Watchers* : ${json.watchers_count !== undefined ? json.watchers_count : 0}\n`;
     txt += `✩  *Size* : ${json.size ? (json.size / 1024).toFixed(2) : '1.50'} MB\n`;
@@ -47,7 +47,7 @@ async function githubCommand(sock, chatId, message) {
       await sock.sendMessage(chatId, { text: txt }, { quoted: message });
     }
   } catch (error) {
-    const fallbackTxt = `*乂  HijjazI AI  乂*\n\n✩  *Name* : Knight-bot-mine\n✩  *Owner* : KashafHijjaze\n✩  *URL* : ${repoUrl}\n\n💥 *HijjazI AI*`;
+    const fallbackTxt = `*乂  HijjazI AI  乂*\n\n✩  *Name* : Whatsapp-bot-\n✩  *Owner* : KashafHijjaze\n✩  *URL* : ${repoUrl}\n\n💥 *HijjazI AI*`;
     await sock.sendMessage(chatId, { text: fallbackTxt }, { quoted: message });
   }
 }
