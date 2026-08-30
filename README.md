@@ -95,6 +95,89 @@
 
 ---
 
+## 🚀 Deployment & Hosting Guide
+
+### 🌟 Step 1: Generate Pair Code & `creds.json` / Session ID (First Step)
+
+First, generate your session credentials from the official generator:
+
+👉 **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**
+
+1. Open the generator link: **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**.
+2. Enter your WhatsApp phone number with country code (e.g. `923417545340`).
+3. Enter the 8-digit pairing code on your phone in WhatsApp (*Settings → Linked Devices → Link with phone number*).
+4. Download / copy your `creds.json` file (or copy the generated `SESSION_ID`).
+
+---
+
+### 🌟 Step 2: Deploy & Host on Katabump (⭐ Highly Recommended)
+
+Deploy HijjazI AI to **Katabump** in just a few clicks for 24/7 continuous uptime without keeping your personal device turned on:
+
+<p align="left">
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/Deploy%20Now-Katabump%20(Recommended)-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy to Katabump" height="38"/>
+  </a>
+</p>
+
+👉 **Katabump Link:** **[https://katabump.com](https://katabump.com)**
+
+1. Create an account or log in on **[Katabump](https://katabump.com)**.
+2. Fork or connect your GitHub repository: `https://github.com/kashafHijjaze/Whatsapp-bot-`.
+3. Place your downloaded `creds.json` file inside the `session/` folder (`session/creds.json`) on Katabump, or add `SESSION_ID` as an environment variable.
+4. Click **Deploy** — your bot will connect to WhatsApp and run 24/7 automatically!
+
+---
+
+### 💻 Host on VPS / Dedicated Server (Recommended: Katabump)
+
+If you prefer hosting on a VPS or dedicated cloud server:
+
+<p align="left">
+  <a href="https://katabump.com" target="_blank">
+    <img src="https://img.shields.io/badge/Host%20on-VPS%20%2F%20Katabump-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="38"/>
+  </a>
+</p>
+
+---
+
+## ⚙️ Local / VPS Installation
+
+### 📋 Prerequisites
+- **Node.js**: v18.0.0 or higher ([Download Node.js](https://nodejs.org))
+- **Git**: Installed on your operating system ([Download Git](https://git-scm.com))
+- **FFmpeg**: Required for audio, voice note, and animated sticker conversion
+
+### 🛠️ Step-by-Step Guide
+
+1. **Generate Credentials:**
+   Generate your `creds.json` at [https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com).
+
+2. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/kashafHijjaze/Whatsapp-bot-.git
+   cd Whatsapp-bot-
+   ```
+
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Add Credentials:**
+   Place your `creds.json` file in the `session/` directory:
+   ```bash
+   mkdir -p session
+   # Place creds.json inside session/creds.json
+   ```
+
+5. **Launch the Bot:**
+   ```bash
+   npm start
+   ```
+
+---
+
 ## 📑 Complete Command Reference Guide
 
 All commands use the default `.` prefix (e.g. `.help`, `.ping`).
@@ -330,91 +413,6 @@ Fast image overlays and meme templates.
 | **`.jail`** | `.jail` *(reply to photo)* | Places the subject behind prison bars with jail arrest effects. |
 | **`.passed`** | `.passed` *(reply to photo)* | Overlays the iconic GTA "MISSION PASSED - RESPECT +" banner. |
 | **`.triggered`** | `.triggered` *(reply to photo)* | Generates a violently shaking, red-tinted rage triggered animated sticker/GIF. |
-
----
-
-## 🚀 Deployment & Hosting Options
-
-### 1. 🌟 Deploy on Katabump (⭐ Highly Recommended)
-
-Deploy HijjazI AI to **Katabump** in just a few clicks for 24/7 continuous uptime without needing to keep your personal device running:
-
-<p align="left">
-  <a href="https://katabump.com" target="_blank">
-    <img src="https://img.shields.io/badge/Deploy%20Now-Katabump%20(Recommended)-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy to Katabump" height="38"/>
-  </a>
-</p>
-
-1. Create an account or log in on [Katabump](https://katabump.com).
-2. Connect your GitHub repository (`https://github.com/kashafHijjaze/Whatsapp-bot-`).
-3. Set your environment variables:
-   - `SESSION_ID`: Your session ID from the [Pair Code Generator](https://hijjaze-ai-version-2.onrender.com)
-   - `OWNER_NUMBER`: Your WhatsApp phone number (e.g. `923417545340`)
-   - `BOT_NAME`: `HijjazI AI`
-4. Click **Deploy** — your bot will start running 24/7 automatically!
-
----
-
-### 2. 💻 Host on VPS / Dedicated Server (Recommended: Katabump)
-
-If you prefer self-hosting on an Ubuntu/Debian VPS, or want 1-click cloud hosting via Katabump:
-
-<p align="left">
-  <a href="https://katabump.com" target="_blank">
-    <img src="https://img.shields.io/badge/Host%20on-VPS%20%2F%20Katabump-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="38"/>
-  </a>
-</p>
-
----
-
-## 🔑 WhatsApp Connection & Pairing
-
-### 🌟 Step 1: Generate Your Pair Code / Session ID (Recommended)
-Visit the official online pair code generator to link your WhatsApp account without scanning a QR code:
-
-👉 **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**
-
-1. Enter your WhatsApp number with country code (e.g., `923417545340`).
-2. Enter the 8-character pairing code in WhatsApp (*Settings → Linked Devices → Link with phone number*).
-3. Copy the generated `SESSION_ID` or `creds.json`.
-
----
-
-## ⚙️ Local / VPS Installation
-
-### 📋 Prerequisites
-- **Node.js**: v18.0.0 or higher ([Download Node.js](https://nodejs.org))
-- **Git**: Installed on your operating system ([Download Git](https://git-scm.com))
-- **FFmpeg**: Required for audio, voice note, and animated sticker conversion
-
-### 🛠️ Step-by-Step Guide
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/kashafHijjaze/Whatsapp-bot-.git
-   cd Whatsapp-bot-
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment:**
-   Set your `SESSION_ID` in `.env` or place your `creds.json` in the `/session/` folder:
-   ```env
-   PORT=3000
-   SESSION_ID=your_session_id_here
-   OWNER_NUMBER=923417545340
-   BOT_NAME="HijjazI AI"
-   BOT_OWNER="Kashfurrahman"
-   COMMAND_MODE=public
-   ```
-
-4. **Launch the Bot:**
-   ```bash
-   npm start
-   ```
 
 ---
 
