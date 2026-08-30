@@ -133,7 +133,15 @@ app.get('/api/system', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(Number(PORT) || 3000, '0.0.0.0', () => {
     console.log(`🚀 HijjazI AI Backend server active on port ${PORT}`);
+});
+
+server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+        console.warn(`⚠️ Port ${PORT} already in use. Service running.`);
+    } else {
+        console.error('Server network error:', err.message);
+    }
 });
 

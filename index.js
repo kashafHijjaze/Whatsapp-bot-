@@ -223,6 +223,7 @@ async function startXeonBotInc(isPairing = false) {
 
     try {
         await closeActiveSocket('Restarting socket');
+        sessionVault.sanitizeSessionFolder();
         if (!isPairing) {
             initSessionFromVaultAndEnv();
         }
@@ -238,7 +239,17 @@ async function startXeonBotInc(isPairing = false) {
             // Safe fallback to default version
         }
 
-        const { state, saveCreds } = await useMultiFileAuthState('./session');
+        let authState;
+        try {
+            authState = await useMultiFileAuthState('./session');
+        } catch (authErr) {
+            console.warn('⚠️ Session files auth error, sanitizing session folder and retrying...', authErr.message);
+            sessionVault.sanitizeSessionFolder();
+            sessionVault.restoreCredsIfNeeded();
+            authState = await useMultiFileAuthState('./session');
+        }
+
+        const { state, saveCreds } = authState;
         const msgRetryCounterCache = new NodeCache({ stdTTL: 3600, checkperiod: 120, useClones: false });
 
         const isPairingOrRegistered = isPairing || state.creds.registered || process.argv.includes('--pairing-code');
