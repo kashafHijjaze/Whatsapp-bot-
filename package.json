@@ -15,7 +15,7 @@
   "keywords": [
     "whatsapp-bot"
   ],
-  "author": "",
+  "author": "Kashfurrahman",
   "license": "ISC",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",

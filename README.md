@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=00F2FE&center=true&vCenter=true&width=800&height=70&lines=HijjazI+AI+WhatsApp+Bot;Powered+by+Baileys+Multi-Device;100%2B+Intelligent+Features+%26+Tools;Coded+with+%E2%9D%A4+by+KashafHijjaze" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=00F2FE&center=true&vCenter=true&width=800&height=70&lines=HijjazI+AI+WhatsApp+Bot;Powered+by+Baileys+Multi-Device;100%2B+Intelligent+Features+%26+Tools;Coded+with+%E2%9D%A4+by+Kashfurrahman" alt="Typing SVG" />
   </a>
 </p>
 
@@ -480,7 +480,7 @@ Fast image overlays and meme templates.
 ### 🌟 Show Your Support
 If you find HijjazI AI useful, please consider giving this repository a **⭐️ Star** on GitHub!
 
-**Crafted with precision & passion by [KashafHijjaze](https://github.com/kashafHijjaze)**
+**Crafted with precision & passion by [Kashfurrahman](https://github.com/kashafHijjaze)**
 
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kashafHijjaze)
 [![WhatsApp Channel](https://img.shields.io/badge/WhatsApp-Community-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://whatsapp.com)
