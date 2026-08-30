@@ -58,9 +58,13 @@
 
 First, generate your session credentials from the official generator:
 
-👉 **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**
+<p align="left">
+  <a href="https://hijjaze-ai-version-2.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/🔑_PAIR_CODE_GENERATOR-Click_Here_To_Get_Code-00F2FE?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Generate Pair Code" height="42"/>
+  </a>
+</p>
 
-1. Open the generator link: **[https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com)**.
+1. Click the button above or visit the generator.
 2. Enter your WhatsApp phone number with country code (e.g. `923***`).
 3. Enter the 8-digit pairing code on your phone in WhatsApp (*Settings → Linked Devices → Link with phone number*).
 4. Download / copy your `creds.json` file (or copy the generated `SESSION_ID`).
@@ -73,16 +77,15 @@ Deploy HijjazI AI to **Katabump** in just a few clicks for 24/7 continuous uptim
 
 <p align="left">
   <a href="https://katabump.com" target="_blank">
-    <img src="https://img.shields.io/badge/Deploy%20Now-Katabump%20(Recommended)-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy to Katabump" height="38"/>
+    <img src="https://img.shields.io/badge/🚀_DEPLOY_ON_KATABUMP-Click_To_Deploy-FF4500?style=for-the-badge&logo=rocket&logoColor=white" alt="Deploy on Katabump" height="42"/>
   </a>
 </p>
 
-👉 **Katabump Link:** **[https://katabump.com](https://katabump.com)**
-
-1. Create an account or log in on **[Katabump](https://katabump.com)**.
-2. Fork or connect your GitHub repository: `https://github.com/kashafHijjaze/Whatsapp-bot-`.
-3. Place your downloaded `creds.json` file inside the `session/` folder (`session/creds.json`) on Katabump, or add `SESSION_ID` as an environment variable.
-4. Click **Deploy** — your bot will connect to WhatsApp and run 24/7 automatically!
+1. Click the **Deploy on Katabump** button above to open the platform.
+2. Create an account or log in.
+3. Fork or connect your GitHub repository (`https://github.com/kashafHijjaze/Whatsapp-bot-`).
+4. Place your downloaded `creds.json` file inside the `session/` folder (`session/creds.json`) on Katabump, or add `SESSION_ID` as an environment variable.
+5. Click **Deploy** — your bot will connect to WhatsApp and run 24/7 automatically!
 
 ---
 
@@ -92,23 +95,69 @@ If you prefer hosting on a VPS or dedicated cloud server:
 
 <p align="left">
   <a href="https://katabump.com" target="_blank">
-    <img src="https://img.shields.io/badge/Host%20on-VPS%20%2F%20Katabump-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="38"/>
+    <img src="https://img.shields.io/badge/💻_HOST_ON_VPS-Katabump_Cloud_Server-7c3aed?style=for-the-badge&logo=linux&logoColor=white" alt="Host on VPS / Katabump" height="42"/>
   </a>
 </p>
+
+---
+
+## ⚡ Quick Setup Script (Automated Clone)
+
+If you are setting up on a new server or panel, you can use this simple setup script:
+
+1. Create a temporary file named `index.js` (or `setup.js`) and paste the following code:
+```javascript
+const { execSync } = require("child_process");
+
+const repo = "https://github.com/kashafHijjaze/Whatsapp-bot-.git";
+const folder = "Whatsapp-bot-";
+
+try {
+  console.log("Cloning repository...");
+
+  execSync(`git clone ${repo} ${folder}`, {
+    stdio: "inherit"
+  });
+
+  console.log("Repository cloned successfully!");
+  console.log(`Location: ./${folder}`);
+
+} catch (error) {
+  console.error("Failed to clone repository.");
+  console.error(error.message);
+}
+```
+
+2. Run the script:
+```bash
+node index.js
+```
+
+3. Move all files to the main directory:
+```bash
+mv Whatsapp-bot-/* Whatsapp-bot-/.* . 2>/dev/null || mv Whatsapp-bot-/* .
+rm -rf Whatsapp-bot-
+```
+
+4. Install dependencies & start:
+```bash
+npm install
+npm start
+```
 
 ---
 
 ## ⚙️ Local / VPS Installation
 
 ### 📋 Prerequisites
-- **Node.js**: v18.0.0 or higher ([Download Node.js](https://nodejs.org))
-- **Git**: Installed on your operating system ([Download Git](https://git-scm.com))
+- **Node.js**: v18.0.0 or higher
+- **Git**: Installed on your operating system
 - **FFmpeg**: Required for audio, voice note, and animated sticker conversion
 
 ### 🛠️ Step-by-Step Guide
 
 1. **Generate Credentials:**
-   Generate your `creds.json` at [https://hijjaze-ai-version-2.onrender.com](https://hijjaze-ai-version-2.onrender.com).
+   Generate your `creds.json` using the generator button above.
 
 2. **Clone the Repository:**
    ```bash
