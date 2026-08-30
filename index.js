@@ -921,9 +921,22 @@ async function repairSession() {
     }
 }
 
+async function restartBot() {
+    try {
+        botState.addLog('🔄 Restarting WhatsApp socket connection in-process...', 'info');
+        await closeActiveSocket('In-process reload');
+        await delay(1200);
+        return await startXeonBotInc();
+    } catch (err) {
+        botState.addLog('Failed to in-process restart socket: ' + err.message, 'error');
+        throw err;
+    }
+}
+
 // Module exports for web control
 module.exports = {
     startXeonBotInc,
+    restartBot,
     requestPairingCodeForNumber,
     requestQrCode,
     resetSession,

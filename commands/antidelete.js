@@ -76,17 +76,17 @@ setInterval(cleanExpiredStorage, 5 * 60 * 1000);
 function loadAntideleteConfig() {
     try {
         if (!fs.existsSync(CONFIG_PATH)) {
-            const defaultConfig = { enabled: true, destination: 'both' };
+            const defaultConfig = { enabled: false, destination: 'both' };
             saveAntideleteConfig(defaultConfig);
             return defaultConfig;
         }
         const data = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
         return {
-            enabled: data.enabled !== false,
+            enabled: Boolean(data.enabled),
             destination: data.destination || 'both' // 'owner' (self DM), 'same_chat', 'both'
         };
     } catch {
-        return { enabled: true, destination: 'both' };
+        return { enabled: false, destination: 'both' };
     }
 }
 
@@ -101,14 +101,14 @@ function saveAntideleteConfig(config) {
     }
 }
 
-// Load per-group antidelete config (Universal for all groups - Default: DM to owner)
+// Load per-group antidelete config (Universal for all groups - Default: Disabled)
 function loadGroupAntideleteConfig() {
     try {
         if (!fs.existsSync(GROUP_CONFIG_PATH)) {
             const defaultConfig = {
-                enabled: true,
-                destination: 'dm', // 'dm' (default: private to owner), 'group', 'both', 'off'
-                defaultMode: 'dm',
+                enabled: false,
+                destination: 'off',
+                defaultMode: 'off',
                 requireAdmin: false,
                 groups: {}
             };
@@ -116,20 +116,20 @@ function loadGroupAntideleteConfig() {
             return defaultConfig;
         }
         const data = JSON.parse(fs.readFileSync(GROUP_CONFIG_PATH, 'utf8'));
-        const isEnabled = data.enabled !== false && data.defaultMode !== 'off' && data.destination !== 'off';
-        const dest = data.destination || data.defaultMode || 'dm';
+        const isEnabled = Boolean(data.enabled) && data.defaultMode !== 'off' && data.destination !== 'off';
+        const dest = data.destination || data.defaultMode || 'off';
         return {
             enabled: isEnabled,
-            destination: dest === 'off' ? 'dm' : dest,
+            destination: dest,
             defaultMode: dest,
             requireAdmin: Boolean(data.requireAdmin),
             groups: data.groups || {}
         };
     } catch {
         return {
-            enabled: true,
-            destination: 'dm',
-            defaultMode: 'dm',
+            enabled: false,
+            destination: 'off',
+            defaultMode: 'off',
             requireAdmin: false,
             groups: {}
         };
@@ -147,14 +147,14 @@ function saveGroupAntideleteConfig(config) {
     }
 }
 
-// Get group setting (Universal for all groups - Default: DM to owner)
+// Get group setting (Universal for all groups - Default: Off)
 function getGroupAntideleteSetting(groupId) {
     const config = loadGroupAntideleteConfig();
-    const isEnabled = config.enabled !== false && config.destination !== 'off' && config.defaultMode !== 'off';
-    const dest = config.destination || config.defaultMode || 'dm';
+    const isEnabled = Boolean(config.enabled) && config.destination !== 'off' && config.defaultMode !== 'off';
+    const dest = config.destination || config.defaultMode || 'off';
     return {
         enabled: isEnabled,
-        destination: dest === 'off' ? 'dm' : dest,
+        destination: dest,
         updatedAt: config.updatedAt,
         updatedBy: config.updatedBy
     };

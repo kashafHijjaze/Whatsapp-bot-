@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "recoverStatus": false,
+  "recoverDeletedStatus": false,
+  "recoverMedia": false,
+  "recoverViewOnce": false,
+  "includeGroups": false,
+  "includePrivate": false
+}

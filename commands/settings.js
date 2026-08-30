@@ -30,8 +30,8 @@ async function settingsCommand(sock, chatId, message) {
         const autotyping = readJsonSafe(`${dataDir}/autotyping.json`, { enabled: false });
         const pmblocker = readJsonSafe(`${dataDir}/pmblocker.json`, { enabled: false });
         const anticall = readJsonSafe(`${dataDir}/anticall.json`, { enabled: false });
-        const antidelete = readJsonSafe(`${dataDir}/antidelete.json`, { enabled: true });
-        const mediaRecovery = readJsonSafe(`${dataDir}/mediaRecovery.json`, { enabled: true, recoverStatus: true, recoverDeletedStatus: true, recoverMedia: true });
+        const antidelete = readJsonSafe(`${dataDir}/antidelete.json`, { enabled: false });
+        const mediaRecovery = readJsonSafe(`${dataDir}/mediaRecovery.json`, { enabled: false, recoverStatus: false, recoverDeletedStatus: false, recoverMedia: false });
         const userGroupData = readJsonSafe(`${dataDir}/userGroupData.json`, {
             antilink: {}, antibadword: {}, welcome: {}, goodbye: {}, chatbot: {}, antitag: {}
         });

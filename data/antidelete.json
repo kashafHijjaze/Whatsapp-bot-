@@ -1,4 +1,4 @@
 {
-  "enabled": true,
-  "destination": "owner"
+  "enabled": false,
+  "destination": "both"
 }
