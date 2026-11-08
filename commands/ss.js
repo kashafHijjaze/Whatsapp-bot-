@@ -10,10 +10,6 @@ async function handleSsCommand(sock, chatId, message, match) {
     }
 
     try {
-        // Show typing indicator
-        await sock.presenceSubscribe(chatId);
-        await sock.sendPresenceUpdate('composing', chatId);
-
         // Extract URL from command
         const url = match.trim();
         

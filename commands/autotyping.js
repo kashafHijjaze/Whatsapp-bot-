@@ -127,10 +127,6 @@ async function handleAutotypingForMessage(sock, chatId, userMessage) {
             // First subscribe to presence updates for this chat
             await sock.presenceSubscribe(chatId);
             
-            // Send available status first
-            await sock.sendPresenceUpdate('available', chatId);
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
             // Then send the composing status
             await sock.sendPresenceUpdate('composing', chatId);
             
@@ -160,10 +156,6 @@ async function handleAutotypingForCommand(sock, chatId) {
         try {
             // First subscribe to presence updates for this chat
             await sock.presenceSubscribe(chatId);
-            
-            // Send available status first
-            await sock.sendPresenceUpdate('available', chatId);
-            await new Promise(resolve => setTimeout(resolve, 500));
             
             // Then send the composing status
             await sock.sendPresenceUpdate('composing', chatId);

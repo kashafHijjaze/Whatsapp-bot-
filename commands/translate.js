@@ -2,10 +2,6 @@ const fetch = require('node-fetch');
 
 async function handleTranslateCommand(sock, chatId, message, match) {
     try {
-        // Show typing indicator
-        await sock.presenceSubscribe(chatId);
-        await sock.sendPresenceUpdate('composing', chatId);
-
         let textToTranslate = '';
         let lang = '';
 

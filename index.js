@@ -252,7 +252,7 @@ async function startXeonBotInc(isPairing = false) {
                 creds: state.creds,
                 keys: createResilientSignalKeyStore(state.keys, pino({ level: 'silent' })),
             },
-            markOnlineOnConnect: true,
+            markOnlineOnConnect: false,
             generateHighQualityLinkPreview: true,
             syncFullHistory: false,
             getMessage: async (key) => {
@@ -620,9 +620,23 @@ setInterval(async () => {
         const hasSessionCreds = botState.checkCreds();
         if (hasSessionCreds) {
             if (activeBotSocket && botState.status === 'connected') {
-                // Keep-alive presence ping to maintain active socket connection 24/7
+                // Protocol-level ping to maintain 24/7 socket connection without broadcasting online presence
                 try {
-                    await activeBotSocket.sendPresenceUpdate('available');
+                    if (typeof activeBotSocket.query === 'function') {
+                        // Silent XMPP ping to WhatsApp servers: maintains connection without altering presence
+                        await activeBotSocket.query({
+                            tag: 'iq',
+                            attrs: {
+                                id: (activeBotSocket.generateMessageTag ? activeBotSocket.generateMessageTag() : String(Date.now())),
+                                to: '@s.whatsapp.net',
+                                type: 'get',
+                                xmlns: 'w:p'
+                            },
+                            content: [{ tag: 'ping', attrs: {} }]
+                        }).catch(() => {});
+                    } else if (activeBotSocket.ws && typeof activeBotSocket.ws.ping === 'function') {
+                        activeBotSocket.ws.ping();
+                    }
                 } catch (e) {
                     // socket may be reconnecting
                 }
